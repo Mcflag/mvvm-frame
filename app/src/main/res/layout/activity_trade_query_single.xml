@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="activity"
+                type="cn.lcsw.diningpos.ui.trade_query.OrderQueryActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background">
+
+        <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="13dp"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/color_33"
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/tv_tip_enter_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="108dp"
+                android:gravity="center"
+                android:text="请出示商户订单码或按数字手输订单"
+                android:textColor="@color/color_33"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/et_order_no"
+                android:layout_width="0dp"
+                android:layout_height="78dp"
+                android:inputType="number"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="28dp"
+                android:background="@drawable/shape_rect_edit_no"
+                android:gravity="center"
+                android:textSize="22sp"
+                android:textColor="@color/money_blue"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_tip_enter_no"
+                tools:text="1544646464" />
+
+
+        <include
+                android:id="@+id/includeLoading"
+                layout="@layout/layout_placeholder_loading"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:delegate="@{ activity.loadingViewModel }"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

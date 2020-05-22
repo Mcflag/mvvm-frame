@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PasswordView">
+        <attr name="passwordLength" format="integer" />
+        <attr name="passwordTextSize" format="dimension" />
+        <attr name="passwordColor" format="color" />
+        <attr name="passwordBgColor" format="color" />
+        <attr name="passwordRadius" format="float" />
+        <attr name="spaceWidth" format="float" />
+        <attr name="bgColor" format="color" />
+        <attr name="delayTime" format="integer" />
+        <attr name="keyboard" format="boolean" />
+    </declare-styleable>
+
+</resources>

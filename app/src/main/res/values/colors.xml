@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#009EEF</color>
+
+    <color name="divider">#EEEEEE</color>
+    <color name="color_trans_50">#80000000</color>
+    <color name="color_29">#7F293340</color>
+    <color name="color_33">#333333</color>
+    <color name="color_66">#666666</color>
+    <color name="color_99">#999999</color>
+    <color name="color_DF">#DFDFDF</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="background">#F5F5F5</color>
+    <color name="orange">#FF8600</color>
+    <color name="red">#FF3B30</color>
+    <color name="grey_stroke">#D8D8D8</color>
+
+    <color name="wechat_green">#5AC22D</color>
+    <color name="light_blue">#22C9FF</color>
+    <color name="dark_blue">#1B9CFF</color>
+    <color name="money_blue">#1EA7FF</color>
+    <color name="grey_press">#D4D6D9</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="trans_background">#01FFFFFF</color>
+
+    <color name="color_title_block_bg">#FFF6F5F8</color>
+    <color name="color_000">#80000000</color>
+
+</resources>

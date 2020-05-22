@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="activity"
+                type="cn.lcsw.diningpos.ui.main.MainActivity"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+        <TextView
+                android:id="@+id/tv_log"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:gravity="center"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+                android:id="@+id/tv_merchant_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="收款金额"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/color_33"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="24dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+                android:id="@+id/tv_money_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:text="请在小键盘输入收款金额"
+                android:textColor="@color/color_33"
+                android:gravity="center"
+                android:visibility="visible"
+                android:layout_marginTop="108dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+<!--        <TextView-->
+<!--                android:id="@+id/tv_stroke"-->
+<!--                android:layout_width="423dp"-->
+<!--                android:layout_height="78dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_marginLeft="30dp"-->
+<!--                android:layout_marginRight="30dp"-->
+<!--                android:background="@drawable/shape_round_square_black_stroke"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintRight_toRightOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/tv_money_label"/>-->
+
+<!--        <TextView-->
+<!--                android:id="@+id/tv_hint"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="24sp"-->
+<!--                android:text="请在小键盘输入收款金额"-->
+<!--                android:textColor="@color/color_trans_50"-->
+<!--                android:gravity="center"-->
+<!--                android:visibility="visible"-->
+<!--                app:layout_constraintTop_toTopOf="@id/tv_stroke"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/tv_stroke"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintRight_toRightOf="parent"/>-->
+
+        <View
+                android:id="@+id/input_line"
+                android:layout_width="180dp"
+                android:layout_height="2dp"
+                android:background="@color/color_DF"
+                android:layout_marginTop="75dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_money_label"/>
+
+        <TextView
+                android:id="@+id/tv_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="60sp"
+                android:text=""
+                android:textColor="@color/money_blue"
+                android:gravity="center"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@id/input_line"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+                android:id="@+id/tv_notice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text=""
+                android:textColor="@color/red"
+                android:gravity="center"
+                android:visibility="visible"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+        <include
+                android:id="@+id/includeLoading"
+                layout="@layout/layout_placeholder_loading"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:delegate="@{ activity.loadingViewModel }"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="gone"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/result_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible"
+                android:background="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                    android:id="@+id/status_icon"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/status1"
+                    android:layout_marginTop="40dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                    android:id="@+id/tv_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:gravity="center"
+                    android:textSize="40sp"
+                    android:textColor="@color/color_33"
+                    android:layout_marginTop="15dp"
+                    tools:text="支付成功"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/status_icon"/>
+
+            <TextView
+                    android:id="@+id/tv_result_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:gravity="center"
+                    android:textSize="50sp"
+                    android:textColor="@color/money_blue"
+                    android:layout_marginTop="15dp"
+                    tools:text="￥10.00"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_result"/>
+
+            <TextView
+                    android:id="@+id/tv_result_notice"
+                    android:layout_width="324dp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:maxLines="2"
+                    android:textColor="@color/color_trans_50"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_result"/>
+
+            <TextView
+                    android:id="@+id/close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text=""
+                    android:textColor="@color/red"
+                    android:gravity="center"
+                    android:visibility="visible"
+                    android:layout_marginBottom="20dp"
+                    tools:text=""
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

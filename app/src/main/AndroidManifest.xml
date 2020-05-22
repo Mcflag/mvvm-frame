@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="cn.lcsw.diningpos">
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" tools:ignore="ProtectedPermissions"/>
+
+    <application
+            android:name=".base.BaseApplication"
+            android:allowBackup="false"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme"
+            tools:ignore="GoogleAppIndexingWarning"
+            tools:replace="android:allowBackup">
+
+        <receiver android:name=".widget.BootBroadcastReceiver"
+                android:enabled="true"
+                android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+                android:name=".MainActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".ui.flash.FlashActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.HOME"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".ui.main.MainActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape"
+                android:windowSoftInputMode="adjustUnspecified|stateAlwaysHidden">
+        </activity>
+        <activity
+                android:name=".ui.pay.PayActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape"
+                android:theme="@style/Transparent">
+        </activity>
+        <activity
+                android:name=".ui.pay.QRPayActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".ui.pay.BarcodePayActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".ui.setting.SettingsActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".ui.setting.SettingsGridActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".ui.setting.PayStyleActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity
+                android:name=".ui.result.ResultActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape">
+        </activity>
+        <activity android:name=".ui.trade_query.TradeQueryGridActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape" />
+        <activity android:name=".ui.trade_query.OrderQueryActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape" />
+        <activity android:name=".ui.trade_query.TradeDetailActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape" />
+        <activity android:name=".ui.trade_query.BeginTimeActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape" />
+        <activity android:name=".ui.trade_query.EndTimeActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape" />
+        <activity android:name=".ui.trade_query.SumDetailActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape" />
+        <activity android:name=".ui.pay.FixedMainActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape" />
+        <activity android:name=".ui.pay.FixedBarcodePayActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape" />
+        <activity android:name=".ui.trade_query.RefundActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape" />
+
+        <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/gkusb"/>
+    </application>
+
+</manifest>
