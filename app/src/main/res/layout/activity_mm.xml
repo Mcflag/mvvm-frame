@@ -18,7 +18,7 @@
                 android:id="@+id/show_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="测试流量中"
+                android:text="测试离线刷脸"
                 android:textSize="30sp"
                 android:gravity="center"
                 android:layout_centerInParent="true"/>
@@ -27,7 +27,7 @@
                 android:id="@+id/report"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="上报数据"
+                android:text="调起刷脸"
                 android:textSize="40sp"
                 android:layout_centerHorizontal="true"
                 android:gravity="center"

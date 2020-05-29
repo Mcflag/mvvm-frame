@@ -2,11 +2,11 @@ package cn.lcsw.diningpos.base
 
 import android.app.Application
 import android.content.Context
-import androidx.multidex.MultiDex
 import cn.lcsw.diningpos.BuildConfig
 import cn.lcsw.diningpos.di.*
 import cn.lcsw.diningpos.utils.ProcessPhoenix
 import cn.lcsw.mvvm.logger.initLogger
+import com.alipay.iot.sdk.APIManager
 import com.blankj.utilcode.util.Utils
 import com.squareup.leakcanary.LeakCanary
 import com.tencent.bugly.crashreport.CrashReport
@@ -16,6 +16,7 @@ import org.kodein.di.android.androidModule
 import org.kodein.di.android.x.androidXModule
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.singleton
+import timber.log.Timber
 
 
 open class BaseApplication : Application(), KodeinAware {
@@ -37,9 +38,17 @@ open class BaseApplication : Application(), KodeinAware {
         INSTANCE = this
 
         initLogger(BuildConfig.DEBUG)
-        initLeakCanary()
+//        initLeakCanary()
         Utils.init(this)
         CrashReport.initCrashReport(applicationContext, "4731c79681", BuildConfig.DEBUG)
+
+        try {
+            APIManager.getInstance().initialize(this, "2016081501751688") {
+                Timber.tag("cccccc").d("APIManager initialize SUCCESS")
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     private fun initLeakCanary() {
@@ -56,7 +65,6 @@ open class BaseApplication : Application(), KodeinAware {
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
-        MultiDex.install(this)
     }
 
     fun restart() {

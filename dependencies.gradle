@@ -1,9 +1,9 @@
 ext {
 
     build_version = [
-            compileSdkVersion: 28,
-            minSdkVersion    : 19,
-            targetSdkVersion : 23,
+            compileSdkVersion: 29,
+            minSdkVersion    : 23,
+            targetSdkVersion : 29,
             versionCode      : 20052101,
             versionName      : '1.1.200521.1428'
     ]

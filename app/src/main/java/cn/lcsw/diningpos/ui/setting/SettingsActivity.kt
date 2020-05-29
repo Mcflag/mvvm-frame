@@ -328,7 +328,7 @@ class SettingsActivity : BaseActivity<ActivitySettingsBinding>(), SurfaceHolder.
         var path: String = ""
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED) || !Environment.isExternalStorageRemovable()) {
             try {
-                path = externalCacheDir.absolutePath
+                path = externalCacheDir!!.absolutePath
             } catch (e: Exception) {
                 e.printStackTrace()
             }
